@@ -1,3 +1,34 @@
+$(document).ready(function() {
+    $(".add").click(function() {
+        var nom = $("#nom").val();
+        var email = $("#email").val();
+        var ligne = "<tr><td><input type='checkbox' name='select'></td><td>" + nom + "</td><td>" + email + "</td></tr>";
+        $("myTable").append(ligne);
+    });
+    $(".delete").click(function() {
+        $("myTable").find('input[name="select"]').each(function() {
+            if ($(this).is(":checked")) {
+                $(this).parents("table.test tr").remove();
+            }
+        });
+    });
+});
+
+/*/ var arrayLignes = document.getElementById("monTableau").rows;
+var arrayLignes = document.getElementById("monTableau").rows; //l'array est stocké dans une variable
+var longueur = arrayLignes.length; //on peut donc appliquer la propriété length
+var i = 0; //on définit un incrémenteur qui représentera la clé
+
+while (i < longueur) {
+    if (i % 2 == 0) //si la clé est paire
+    {
+        arrayLignes[i].style.backgroundColor = "#bdcbf5";
+    } else //elle est impaire
+    {
+        arrayLignes[i].style.backgroundColor = "#829eeb";
+    }
+    i++;
+}
 const generateTable = (table, data) => {
     for (let element of data) {
         let now = table.insertRow()

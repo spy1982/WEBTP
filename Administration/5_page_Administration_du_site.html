@@ -1,65 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Administration</title>
+    <title>monTableau</title>
+    <!--<<h1 id="monTableau">Liste des adherents</h1><!-->
+    <link rel="stylesheet">
+    <link rel="stylesheet" href="./Adhesion_hack.css">
 </head>
-<table>
-  <thead>
-    <tr>
-      <th>Prénom</th>
-      <th>Age</th>
-      <th>Adherent</th>
-    </tr>
-  </thead><tbody>
-  <tr>
-    <td>Pierre</td>
-    <td>29</td>
-    <td>oui</td>
-  </tr>
-  <tr>
-    <td>Mathilde</td>
-    <td>027</td>
-    <td>false</td>
-  </tr>
-  <tr>
-    <td>3Ric</td>
-    <td></td>
-    <td>??</td>
-  </tr>
-  <tr>
-    <td>Florian</td>
-    <td>trente</td>
-    <td>01</td>
-  </tr>
-  </tbody>
-</table>
-<link rel="stylesheet" href="./presentation.css">
-<table>
-        <thead>
-            <tr>
-                <th colspan="3" style="color: azure;">les meilleurs mangeurs</th>
-            </tr>
-        </thead>
-        <tbody style="color: azure;">
-            <tr>
-                <td>pseudo</td>
-                <td>derniere connexion</td>
-                <td>reputation</td>
-            </tr>
-            <tr>
-                <td> <p>enzo</p> </td>
-                <td> <p>21/07/2020</p> </td>
-                <td> <p>+10</p> </td>
-            </tr>
-            <tr>
+<link rel="stylesheet" href="./Adhesion_hack.css">
+<script type="text/javascript">
+    function RetourSurPagePrincipale() {
+        document.location.href = "../2_page_Presentation_Hack.html";
+        return true;
+    }
+</script>
+<!--<TABLE BORDER="2">
 
-            </tr>
-        </tbody>
-    </table>
+    <CAPTION> Liste des adhérents </CAPTION>
+    <TR>
+        <TH> Nom </TH>
+        <TH> Age </TH>
+        <TH> adherents </TH>
+    </TR>
+    <TR>
+        <TD> Enzo </TD>
+        <TD> 50 </TD>
+        <TD> oui </TD>
+    </TR>
+
+    <TR>
+        <TD> Yves </TD>
+        <TD> 23 </TD>
+        <TD> oui </TD>
+    </TR>
+
+    <TR>
+        <TD> Pierre </TD>
+        <TD> 48 </TD>
+        <TD> non </TD>
+    </TR>
+</TABLE>
+
 <body>
+
+    </form>
+</body>-->
+<style type="text/css">
+    /* Mettez le code CSS ici. */
     
-</form>
+    table {
+        margin: 18px 0;
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    table th,
+    table td {
+        text-align: left;
+        padding: 6px;
+    }
+    
+    table,
+    th,
+    td {
+        border: 1px solid #000;
+    }
+</style>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script type="text/javascript">
+    // Mettez le code javascript ici.
+    $(document).ready(function() {
+        $(".add").click(function() {
+            var nom = $("#nom").val();
+            var email = $("#email").val();
+            var ligne = "<tr><td><input type='checkbox' name='select'></td><td>" + nom + "</td><td>" + email + "</td></tr>";
+            $("table.test").append(ligne);
+        });
+        $(".delete").click(function() {
+            $("table.test").find('input[name="select"]').each(function() {
+                if ($(this).is(":checked")) {
+                    $(this).parents("table.test tr").remove();
+                }
+            });
+        });
+    });
+</script>
+</head>
+
+<body>
+    <input type="text" id="nom" placeholder="Nom">
+    <input type="text" id="email" placeholder="Adresse email">
+    <input type="button" class="add" value="Ajouter une ligne">
+    <table class="test">
+        <tr>
+            <th>Sélectionner</th>
+            <th>Nom</th>
+            <th>Email</th>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="select"></td>
+            <td>Thomas Babtise</td>
+            <td>thomas@waytolearnx.com</td>
+        </tr>
+    </table>
+    <button type="button" class="delete">Supprimer une ligne</button>
 </body>
+<button type="submit">envoyer</button>
+<br/> <br/>
+<input type="button" value="Retour" onclick="RetourSurPagePrincipale()">
+
 </html>
