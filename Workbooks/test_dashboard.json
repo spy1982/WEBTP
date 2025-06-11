@@ -1,0 +1,12 @@
+{
+  "name": "Test Workbook Sentinel",
+  "items": [
+    {
+      "type": "textblock",
+      "content": "## Ceci est un test de tableau de bord.",
+      "settings": {
+        "markdown": true
+      }
+    }
+  ]
+}
